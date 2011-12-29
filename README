@@ -1,0 +1,5 @@
+This projects contains a set of OSGi bundles that bootstrap the use of ServiceMix 5. It is intended as a starting point for the creation of additional bundles, as a guide to using SMX feaures.
+
+smxb-pinger contains a bundle that periodically sends a ping message over the embedded ActiveMQ instance.
+smxb-ponger listens on the queue and replies after invoking an OSGi Blueprint service to generate a response.
+smxb-ponger-service contains the implementation of that service.
