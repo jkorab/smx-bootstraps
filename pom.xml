@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>net.jakubkorab.smx</groupId>
+	<artifactId>smx-bootstraps</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0-SNAPSHOT</version>
+
+	<name>smxb [ServiceMix Bootstraps]</name>
+
+	<properties>
+		<camel-version>2.8.0</camel-version>
+		<activemq-camel-version>5.5.1</activemq-camel-version>
+		<maven-bundle-plugin-version>2.3.4</maven-bundle-plugin-version>
+		<build-plugins-plugin-version>2.5</build-plugins-plugin-version>
+		<build-helper-plugin-version>1.7</build-helper-plugin-version>
+	</properties>
+	
+	<modules>
+		<module>smxb-pinger</module>
+		<module>smxb-ponger</module>
+		<module>smxb-ponger-service</module>
+	</modules>
+
+</project>
