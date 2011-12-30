@@ -28,6 +28,13 @@
             <artifactId>smxb-ponger-service</artifactId>
             <version>${project.version}</version>
         </dependency>
-    </dependencies>
 
+		<!-- required for communicating over the NMR -->
+        <dependency>
+            <groupId>org.apache.servicemix</groupId>
+            <artifactId>servicemix-camel</artifactId>
+            <version>${servicemix-version}</version>
+        </dependency>
+    </dependencies>
+	
 </project>

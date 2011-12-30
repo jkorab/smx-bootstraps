@@ -9,20 +9,19 @@
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
 
-	<name>smxb [ServiceMix Bootstraps]</name>
+	<name>smx-bootstraps</name>
 
 	<properties>
 		<camel-version>2.8.0</camel-version>
 		<activemq-camel-version>5.5.1</activemq-camel-version>
+		<servicemix-version>2011.02</servicemix-version>
 		<maven-bundle-plugin-version>2.3.4</maven-bundle-plugin-version>
 		<build-plugins-plugin-version>2.5</build-plugins-plugin-version>
 		<build-helper-plugin-version>1.7</build-helper-plugin-version>
 	</properties>
 	
 	<modules>
-		<module>smxb-pinger</module>
-		<module>smxb-ponger</module>
-		<module>smxb-ponger-service</module>
+		<module>smxb-ping-pong</module>
 	</modules>
 
 </project>

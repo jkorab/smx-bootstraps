@@ -25,11 +25,6 @@
             <artifactId>camel-jms</artifactId>
             <version>${camel-version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-camel</artifactId>
-            <version>${activemq-camel-version}</version>
-        </dependency>
     </dependencies>
 	
 </project>
