@@ -1,18 +1,21 @@
 This projects contains a set of OSGi bundles that bootstrap the use of ServiceMix 4. It is intended as a starting point for the creation of additional bundles, and as a guide to using SMX feaures.
 
 The Ping Pong bootstrap is used to show inter-bundle request-response communication using ActiveMQ. 
-* A Pinger defines a Camel route which periodically triggers a message to be sent and prints out the response.
-* A Ponger listens for ping messages on a known queue, and responds by invoking an OSGi Blueprint service defined in an implementation bundle to generate the response. 
+
+1. A Pinger defines a Camel route which periodically triggers a message to be sent and prints out the response.
+1. A Ponger listens for ping messages on a known queue, and responds by invoking an OSGi Blueprint service defined in an implementation bundle to generate the response. 
 
 Project layout
 ==============
 The Maven projects contained within are as follows:
+
 * _smxb-ping-pong_ - Contains an XML features file used to install the rest of the bundles.
 * _smxb-pinger_ - Contains a bundle that periodically sends a ping message over the embedded ActiveMQ instance.
 * _smxb-ponger_ - Listens on the queue and replies after invoking an OSGi Blueprint service to generate a response. Contains an additional NMR-based route as an alternative mechanism for chatting with the pinger in the same ServiceMix instance.
 * _smxb-ponger-service_ - Contains the implementation of that service.
 
 There are two additional parent projects that simplify the Maven proect configuration:
+
 * _smxb-camel-bundle_ - used as parent by bundles that use Camel
 * _smxb-activemq-bundle_ - used as parent by bundles that use Camel + ActiveMQ
 
