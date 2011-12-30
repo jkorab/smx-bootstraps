@@ -1,8 +1,8 @@
 This projects contains a set of OSGi bundles that bootstrap the use of ServiceMix 4. It is intended as a starting point for the creation of additional bundles, and as a guide to using SMX feaures.
 
 The Ping Pong bootstrap is used to show inter-bundle request-response communication using ActiveMQ. 
-1. A Pinger defines a Camel route which periodically triggers a message to be sent and prints out the response.
-2. A Ponger listens for ping messages on a known queue, and responds by invoking an OSGi Blueprint service defined in an implementation bundle to generate the response. 
+* A Pinger defines a Camel route which periodically triggers a message to be sent and prints out the response.
+* A Ponger listens for ping messages on a known queue, and responds by invoking an OSGi Blueprint service defined in an implementation bundle to generate the response. 
 
 Project layout
 ==============
