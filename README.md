@@ -14,15 +14,15 @@ The Maven projects contained within are as follows:
 * _smxb-ponger_ - Listens on the queue and replies after invoking an OSGi Blueprint service to generate a response. Contains an additional NMR-based route as an alternative mechanism for chatting with the pinger in the same ServiceMix instance.
 * _smxb-ponger-service_ - Contains the implementation of that service.
 
-There are two additional parent projects that simplify the Maven proect configuration:
+There are two additional parent projects that simplify the Maven project configuration:
 
 * _smxb-camel-bundle_ - used as parent by bundles that use Camel
 * _smxb-activemq-bundle_ - used as parent by bundles that use Camel + ActiveMQ
 
 Prerequisites
 =============
-Set up ServiceMix by downloading the latest 4.X version from [FuseSource](http://fusesource.com/products/enterprise-servicemix/). 
-The installation guide can be reached from the Documentation tab on that page. 
+Set up ServiceMix by downloading the latest 4.X version from [FuseSource](http://fusesource.com/products/enterprise-servicemix/). The installation guide can be reached from the Documentation tab on that page. 
+
 Ensure that Maven is set up on your system. 
 
 Installation
@@ -54,16 +54,17 @@ You may need to wait for a while as Servicemix downloads and starts the bundles 
 	karaf@root> _
 
 Install the `smxb-ping-pong` features file. This gets pulled out from your local Maven repository, and defines which bundles you mean to install for the bootstrap project.
+
 	karaf@root> features:addurl mvn:net.jakubkorab.smx/smxb-ping-pong/1.0-SNAPSHOT/xml/features
 	
-You can now check that the features defined in that file are available for installation []
+You can now check that the features defined in that file are available for installation:
 
 	karaf@root> features:list | grep smxb
 	[uninstalled] [1.0                 ] smxb-ping-pong                       smxb-ping-pong-1.0-SNAPSHOT       
 	[uninstalled] [1.0                 ] smxb-ping                            smxb-ping-pong-1.0-SNAPSHOT       
 	[uninstalled] [1.0                 ] smxb-pong                            smxb-ping-pong-1.0-SNAPSHOT
 	
-NP: It's often a good idea to prefix all of your features and bundles with a known string, such as smxb in this case, so you can easily find them via the grep command in the various  listings.
+_NP: It's often a good idea to prefix all of your features and bundles with a known string, such as `smxb` in this case, so you can easily find them via the grep command in the various listings._
 
 Install all of the necessary OSGi bundles by installing the `smxb-ping-pong` feature
 
