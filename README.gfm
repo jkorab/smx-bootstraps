@@ -25,9 +25,11 @@ Ensure that Maven is set up on your system.
 Installation
 ============
 Download this project and run
+
 	smx-bootstraps> mvn clean install
 
 Start up ServiceMix
+
 	$SERVICEMIX_HOME> bin/servicemix console 
 	
 	 ____                  _          __  __ _      
@@ -42,6 +44,7 @@ Start up ServiceMix
 	and '[cmd] --help' for help on a specific command.
 
 You may need to wait for a while as Servicemix downloads and starts the bundles it needs to run fully. Running the `list` command should show around 200+ bundles all Active.
+
 	karaf@root> list
 	...
 	[ 220] [Active     ] [            ] [       ] [   50] camel-jetty (2.8.0.fuse-01-06)
@@ -51,6 +54,7 @@ Install the `smxb-ping-pong` features file. This gets pulled out from your local
 	karaf@root> features:addurl mvn:net.jakubkorab.smx/smxb-ping-pong/1.0-SNAPSHOT/xml/features
 	
 You can now check that the features defined in that file are available for installation []
+
 	karaf@root> features:list | grep smxb
 	[uninstalled] [1.0                 ] smxb-ping-pong                       smxb-ping-pong-1.0-SNAPSHOT       
 	[uninstalled] [1.0                 ] smxb-ping                            smxb-ping-pong-1.0-SNAPSHOT       
@@ -59,6 +63,7 @@ You can now check that the features defined in that file are available for insta
 NP: It's often a good idea to prefix all of your features and bundles with a known string, such as smxb in this case, so you can easily find them via the grep command in the various  listings.
 
 Install all of the necessary OSGi bundles by installing the `smxb-ping-pong` feature
+
 	karaf@root> features:install smxb-ping-pong
 	karaf@root> list | grep smxb
 	[ 236] [Active     ] [Created     ] [       ] [   60] smxb-pinger (1.0.0.SNAPSHOT)
@@ -66,11 +71,13 @@ Install all of the necessary OSGi bundles by installing the `smxb-ping-pong` fea
 	[ 238] [Active     ] [Created     ] [       ] [   60] smxb-ponger-service (1.0.0.SNAPSHOT)
 
 You can then start the bundles (the numbers may vary in your installation)
+
 	karaf@root> start 236
 	karaf@root> start 237
 	karaf@root> start 238
 
 The log should now contain output from your bundles
+
 	karaf@root> log:display -n 5
 	13:03:11,760 | INFO  | msConsumer[pings | pong                             | ?                                   ? | 85 - org.apache.camel.camel-core - 2.8.0.fuse-01-06 | Received ping: Ping at 2011-12-30 13:03:11
 	13:03:11,772 | INFO  | tenerContainer-1 | toActiveMQ                       | ?                                   ? | 85 - org.apache.camel.camel-core - 2.8.0.fuse-01-06 | Received AMQ: [Pong from service to [Ping at 2011-12-30 13:03:11]]
@@ -86,16 +93,21 @@ Working with bundles
 --------------------
 Change the Camel route defined in `smxb-pinger/target/classes/OSGI-INF/blueprint/blueprint.xml`.
 Run 
+
 	smx-bootstraps> mvn clean install
+
 In ServiceMix, update the `smxb-pinger` bundle
+
 	karaf@root> list | grep smxb-pinger
 	[ 236] [Active     ] [Created     ] [       ] [   60] smxb-pinger (1.0.0.SNAPSHOT)
 	karaf@root> update 236
+
 Your changes should now be visible.
 
 Configuration
 -------------
 The `smxb-pinger` and `smxb-ponger` projects make use of OSGi Blueprints config services. From the same `blueprints.xml`:
+
 	<cm:property-placeholder persistent-id="net.jakubkorab.smx.pinger"
 		update-strategy="reload">
 		<cm:default-properties>
@@ -110,11 +122,13 @@ The `smxb-pinger` and `smxb-ponger` projects make use of OSGi Blueprints config 
 You can dynamically change the default configuration by creating a properties file in the `$SERVICEMIX_HOME/etc` directory called `{persistent-id}.cfg`, so in this case `net.jakubkorab.smx.pinger.cfg`. This is a standard properties file, within which you can override any of the properties used in your `blueprints.xml`.
 
 Adding the following line to the file and saving it will stop the bundles that listen on that `persistent-id` and start them again.
+
 	broker.url=failover:(tcp://127.0.0.1:61616,tcp://127.0.0.1:61617)
 
 This assumes that the `cm:property-placheholders` are configured with `update-strategy="reload"`, if not the bundles need to be stopped and started manually.
 
 The log should show the affected Camel routes stopping and starting:
+
 	13:24:58,181 | INFO  | Thread-51        | BlueprintCamelContext            | ?                                   ? | 85 - org.apache.camel.camel-core - 2.8.0.fuse-01-06 | Apache Camel 2.8.0-fuse-01-06 (CamelContext:smxb-pinger) is shutting down
 	13:24:58,182 | INFO  | Thread-51        | DefaultShutdownStrategy          | ?                                   ? | 85 - org.apache.camel.camel-core - 2.8.0.fuse-01-06 | Starting to graceful shutdown 2 routes (timeout 300 seconds)
 	13:24:58,183 | INFO  | 8 - ShutdownTask | DefaultShutdownStrategy          | ?                                   ? | 85 - org.apache.camel.camel-core - 2.8.0.fuse-01-06 | Route: pingOnTimer shutdown complete, was consuming from: Endpoint[timer://foo?period=5000]
