@@ -29,6 +29,7 @@
 		update-strategy="reload">
 		<cm:default-properties>
 			<cm:property name="broker.url" value="failover:(tcp://127.0.0.1:61616)" />
+			<cm:property name="ping.frequency" value="5000" />
 		</cm:default-properties>
 	</cm:property-placeholder>
 
@@ -38,7 +39,7 @@
 
 	<camelContext id="smxb-pinger" xmlns="http://camel.apache.org/schema/blueprint">
 		<route id="pingOnTimer">
-			<from uri="timer:foo?period=5000"/>
+			<from uri="timer:foo?period={{ping.frequency}}"/>
 			<setBody>
 				<method ref="pingBean" method="ping"/>
 			</setBody>

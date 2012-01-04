@@ -18,6 +18,7 @@
 		update-strategy="reload">
 		<cm:default-properties>
 			<cm:property name="broker.url" value="failover:(tcp://127.0.0.1:61616)" />
+			<cm:property name="pong.logMessage" value="Received ping" />
 		</cm:default-properties>
 	</cm:property-placeholder>
 
@@ -50,7 +51,7 @@
         </route>
         <route id="pong">
             <from uri="direct:pong" />
-            <log message="Received ping: ${body}" />
+            <log message="{{pong.logMessage}}: ${body}" />
             <setBody>
                 <method ref="pongReference" method="pong" />
             </setBody>
