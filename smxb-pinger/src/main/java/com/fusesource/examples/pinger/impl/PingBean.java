@@ -13,15 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- package com.fusesource.examples.ponger.impl;
+package com.fusesource.examples.pinger.impl;
 
-import com.fusesource.examples.ponger.Pong;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import com.fusesource.examples.pinger.Ping;
 
-public class PongBean implements Pong {
+/**
+ * A bean which we use in the route
+ */
+public class PingBean implements Ping {
 
-	@Override
-	public String pong(String message) {
-		return "Pong from service to [" + message + "]";
-	}
+    private String say = "Ping";
 
+    public String ping() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return say + " at " + sdf.format(new Date());
+    }
+
+    public String getSay() {
+        return say;
+    }
+
+    public void setSay(String say) {
+        this.say = say;
+    }
 }

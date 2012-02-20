@@ -9,19 +9,16 @@ Project layout
 ==============
 The Maven projects contained within are as follows:
 
-* _smxb-ping-pong_ - Contains an XML features file used to install the rest of the bundles.
-* _smxb-pinger_ - Contains a bundle that periodically sends a ping message over the embedded ActiveMQ instance.
-* _smxb-ponger_ - Listens on the queue and replies after invoking an OSGi Blueprint service to generate a response. Contains an additional NMR-based route as an alternative mechanism for chatting with the pinger in the same ServiceMix instance.
-* _smxb-ponger-service_ - Contains the implementation of that service.
+* `smxb-ping-pong` - Contains an XML features file used to install the rest of the bundles.
+* `smxb-pinger` - Contains a bundle that periodically sends a ping message over the embedded ActiveMQ instance. Also exposes a RESTful web service on port 9090 that allows you you ping the service manually.
+* `smxb-ponger` - Listens on the queue and replies after invoking an OSGi Blueprint service to generate a response. Contains an additional NMR-based route as an alternative mechanism for chatting with the pinger in the same ServiceMix instance.
+* `smxb-ponger-service` - Contains the implementation of that service.
 
-There are two additional parent projects that simplify the Maven project configuration:
-
-* _smxb-camel-bundle_ - used as parent by bundles that use Camel
-* _smxb-activemq-bundle_ - used as parent by bundles that use Camel + ActiveMQ
+There is also an additional parent project `camel-bundle` that simplifies the Maven project configuration.
 
 Prerequisites
 =============
-Set up ServiceMix by downloading the latest 4.X version from [FuseSource](http://fusesource.com/products/enterprise-servicemix/). The installation guide can be reached from the Documentation tab on that page. 
+Set up ServiceMix by downloading the latest 4.4.1+ version from [FuseSource](http://fusesource.com/products/enterprise-servicemix/). The installation guide can be reached from the Documentation tab on that page. 
 
 Ensure that Maven is set up on your system. 
 
@@ -52,6 +49,10 @@ You may need to wait for a while as Servicemix downloads and starts the bundles 
 	...
 	[ 220] [Active     ] [            ] [       ] [   50] camel-jetty (2.8.0.fuse-01-06)
 	karaf@root> _
+
+If `camel-jetty` does not appear in the bundle list, install it; it is required to enable the Pinger web service:
+
+	karaf@root> features:install camel-jetty
 
 Install the `smxb-ping-pong` features file. This gets pulled out from your local Maven repository, and defines which bundles you mean to install for the bootstrap project.
 
@@ -89,7 +90,11 @@ The log should now contain output from your bundles
 	13:03:16,759 | INFO  | msConsumer[pings | pong                             | ?                                   ? | 85 - org.apache.camel.camel-core - 2.8.0.fuse-01-06 | Received ping: Ping at 2011-12-30 13:03:16
 	13:03:16,768 | INFO  | tenerContainer-1 | toActiveMQ                       | ?                                   ? | 85 - org.apache.camel.camel-core - 2.8.0.fuse-01-06 | Received AMQ: [Pong from service to [Ping at 2011-12-30 13:03:16]]
 
-Congratulations. You have just deployed and run a bootstrap integration project!
+Check that the web service is running by hitting the following from your web browser:
+
+	http://localhost:9090/ping?msg=Ping!!!
+
+Congratulations. You have just deployed and run a bootstrapped integration project!
 
 Next steps
 ==========

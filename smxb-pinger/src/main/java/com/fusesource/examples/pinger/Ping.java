@@ -13,15 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- package com.fusesource.examples.ponger.impl;
+package com.fusesource.examples.pinger;
 
-import com.fusesource.examples.ponger.Pong;
+/**
+ * An interface for implementing Ping services.
+ */
+public interface Ping {
 
-public class PongBean implements Pong {
-
-	@Override
-	public String pong(String message) {
-		return "Pong from service to [" + message + "]";
-	}
-
+    String ping();
+	
 }
