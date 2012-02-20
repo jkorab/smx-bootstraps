@@ -1,6 +1,6 @@
-package net.jakubkorab.smx.ponger.impl;
+package com.fusesource.examples.ponger.impl;
 
-import net.jakubkorab.smx.ponger.Pong;
+import com.fusesource.examples.ponger.Pong;
 
 public class PongBean implements Pong {
 

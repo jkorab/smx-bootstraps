@@ -1,4 +1,4 @@
-package net.jakubkorab.smx;
+package com.fusesource.examples;
 
 /**
  * An interface for implementing Ping services.

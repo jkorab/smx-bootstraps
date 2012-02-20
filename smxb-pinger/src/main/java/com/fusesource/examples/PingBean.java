@@ -1,4 +1,4 @@
-package net.jakubkorab.smx;
+package com.fusesource.examples;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

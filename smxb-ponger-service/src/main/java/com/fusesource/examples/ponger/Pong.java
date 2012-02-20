@@ -1,4 +1,4 @@
-package net.jakubkorab.smx.ponger;
+package com.fusesource.examples.ponger;
 
 public interface Pong {
 

@@ -55,7 +55,7 @@ You may need to wait for a while as Servicemix downloads and starts the bundles 
 
 Install the `smxb-ping-pong` features file. This gets pulled out from your local Maven repository, and defines which bundles you mean to install for the bootstrap project.
 
-	karaf@root> features:addurl mvn:net.jakubkorab.smx/smxb-ping-pong/1.0-SNAPSHOT/xml/features
+	karaf@root> features:addurl mvn:com.fusesource.examples/smxb-ping-pong/1.0-SNAPSHOT/xml/features
 	
 You can now check that the features defined in that file are available for installation:
 
@@ -112,7 +112,7 @@ Configuration
 -------------
 The `smxb-pinger` and `smxb-ponger` projects make use of OSGi Blueprints config services. From the same `blueprints.xml`:
 
-	<cm:property-placeholder persistent-id="net.jakubkorab.smx.pinger"
+	<cm:property-placeholder persistent-id="com.fusesource.examples.pinger"
 		update-strategy="reload">
 		<cm:default-properties>
 			<cm:property name="broker.url" value="failover:(tcp://127.0.0.1:61616)" />
@@ -123,7 +123,7 @@ The `smxb-pinger` and `smxb-ponger` projects make use of OSGi Blueprints config 
         <property name="brokerURL" value="${broker.url}" />
     </bean>
     
-You can dynamically change the default configuration by creating a properties file in the `$SERVICEMIX_HOME/etc` directory called `{persistent-id}.cfg`, so in this case `net.jakubkorab.smx.pinger.cfg`. This is a standard properties file, within which you can override any of the properties used in your `blueprints.xml`.
+You can dynamically change the default configuration by creating a properties file in the `$SERVICEMIX_HOME/etc` directory called `{persistent-id}.cfg`, so in this case `com.fusesource.examples.pinger.cfg`. This is a standard properties file, within which you can override any of the properties used in your `blueprints.xml`.
 
 Adding the following line to the file and saving it will stop the bundles that listen on that `persistent-id` and start them again.
 
