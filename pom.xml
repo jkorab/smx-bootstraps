@@ -33,11 +33,13 @@
 	</properties>
 
 	<modules>
+        <module>bundle-parent</module>
+        <module>camel-parent</module>
 		<module>smxb-pinger</module>
+        <module>smxb-ponger-service</module>
 		<module>smxb-ponger</module>
-		<module>smxb-ponger-service</module>
 		<module>smxb-features</module>
-	</modules>
+    </modules>
 		
 	<build>
 		<pluginManagement>

@@ -24,7 +24,7 @@ import com.fusesource.examples.pinger.Ping;
  */
 public class PingBean implements Ping {
 
-    private String say = "Ping";
+    private String say = "Super cool.";
 
     public String ping() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

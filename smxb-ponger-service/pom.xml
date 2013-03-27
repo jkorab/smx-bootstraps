@@ -21,8 +21,9 @@
 
     <parent>
         <groupId>com.fusesource.examples</groupId>
-        <artifactId>smx-bootstraps</artifactId>
+        <artifactId>bundle-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../bundle-parent</relativePath>
     </parent>
 
 	<artifactId>smxb-ponger-service</artifactId>
@@ -30,15 +31,5 @@
 	<version>1.0-SNAPSHOT</version>
 
 	<name>smxb-ponger-service</name>
-
-  <build>
-      <defaultGoal>install</defaultGoal>
-      <plugins>
-          <plugin>
-              <groupId>org.apache.felix</groupId>
-              <artifactId>maven-bundle-plugin</artifactId>
-          </plugin>
-      </plugins>
-  </build>
 
 </project>

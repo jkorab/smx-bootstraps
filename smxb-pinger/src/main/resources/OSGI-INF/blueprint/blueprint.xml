@@ -33,14 +33,16 @@
 
 	<camelContext id="smxb-pinger"
 		xmlns="http://camel.apache.org/schema/blueprint">
+
 		<route id="pingFromTimer">
 			<from uri="timer:foo?period={{ping.frequency}}" />
 			<setBody>
 				<method method="ping" ref="pingBean"></method>
 			</setBody>
 			<log message="Timer generated ${body}" />
-			<to uri="direct:toActiveMQ" />
+			<to uri="direct:toVm" />
 		</route>
+		
 		<route id="pingFromJettyRest">
 			<from uri="jetty:http://localhost:{{jetty.port}}/ping" />
 			<transform>
@@ -48,22 +50,24 @@
 			</transform>
 			<choice>
 				<when>
-					<simple>${headers.via} == 'NMR'</simple>
-					<to uri="direct:toNmr" />
+					<simple>${headers.via} == 'VM'</simple>
+					<to uri="direct:toVm" />
 				</when>
 				<otherwise>
 					<to uri="direct:toActiveMQ" />
 				</otherwise>
 			</choice>
 		</route>
+		
 		<route id="toActiveMQ">
 			<from uri="direct:toActiveMQ" />
 			<inOut uri="activemq:pings" />
 			<log message="Received ${body}" />
 		</route>
-		<route id="toNmr">
-			<from uri="direct:toNmr" />
-			<inOut uri="nmr:pong" />
+		
+		<route id="toVm">
+			<from uri="direct:toVm" />
+			<inOut uri="vm:pong" />
 			<log message="Received ${body}" />
 		</route>
 	</camelContext>

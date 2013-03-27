@@ -13,13 +13,14 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>smx-bootstraps</artifactId>
+		<artifactId>bundle-parent</artifactId>
 		<groupId>com.fusesource.examples</groupId>
 		<version>1.0-SNAPSHOT</version>
-	</parent>
+        <relativePath>../bundle-parent</relativePath>
+    </parent>
 
 	<groupId>com.fusesource.examples</groupId>
-	<artifactId>camel-bundle</artifactId>
+	<artifactId>camel-parent</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
 
@@ -58,15 +59,5 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<defaultGoal>install</defaultGoal>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>

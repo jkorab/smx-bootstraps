@@ -21,9 +21,9 @@
 
     <parent>
         <groupId>com.fusesource.examples</groupId>
-        <artifactId>camel-bundle</artifactId>
+        <artifactId>camel-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../camel-bundle</relativePath>
+        <relativePath>../camel-parent</relativePath>
     </parent>
 
     <artifactId>smxb-pinger</artifactId>
