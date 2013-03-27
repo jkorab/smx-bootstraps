@@ -26,7 +26,11 @@
     </feature>
     <feature name="smxb-pong" version="1.0">
     	<feature>camel-nmr</feature>
-        <bundle>mvn:com.fusesource.examples/smxb-ponger/1.0-SNAPSHOT</bundle>
-        <bundle>mvn:com.fusesource.examples/smxb-ponger-service/1.0-SNAPSHOT</bundle>
+        <bundle>mvn:com.fusesource.examples/smxb-pong-api/1.0-SNAPSHOT</bundle>
+        <bundle>mvn:com.fusesource.examples/smxb-ponger/1.0.1-SNAPSHOT</bundle>
+    </feature>
+    <feature name="smxb-pong-service" version="1.0">
+        <bundle>mvn:com.fusesource.examples/smxb-pong-api/1.0-SNAPSHOT</bundle>
+        <bundle>mvn:com.fusesource.examples/smxb-pong-service/1.0.1-SNAPSHOT</bundle>
     </feature>
 </features>

@@ -28,7 +28,7 @@
 
     <artifactId>smxb-ponger</artifactId>
     <packaging>bundle</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <name>smxb-ponger</name>
     
@@ -39,8 +39,8 @@
     <dependencies>
         <dependency>
             <groupId>com.fusesource.examples</groupId>
-            <artifactId>smxb-ponger-service</artifactId>
-            <version>${project.version}</version>
+            <artifactId>smxb-pong-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 	
