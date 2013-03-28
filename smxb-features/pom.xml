@@ -22,11 +22,12 @@
     <parent>
         <artifactId>smx-bootstraps</artifactId>
         <groupId>com.fusesource.examples</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.1-SNAPSHOT</version>
     </parent>
 
 	<artifactId>smxb-features</artifactId>
 	<packaging>pom</packaging>
+    <version>1.1-SNAPSHOT</version>
 
 	<name>smxb-features</name>
 	<description>Request-response between bundles over ActiveMQ</description>

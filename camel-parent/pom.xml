@@ -24,9 +24,6 @@
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
 
-	<name>Camel bundle parent project</name>
-	<description>All Camel bundle projects should inherit from this one</description>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
