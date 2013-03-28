@@ -24,8 +24,6 @@
         <camel-feature-range>[${camel-version},3)</camel-feature-range>
         <activemq-camel-version>5.7.0</activemq-camel-version>
         <activemq-feature-range>[${activemq-camel-version},6)</activemq-feature-range>
-		<servicemix-version>4.5.0</servicemix-version>
-        <servicemix-feature-range>[${servicemix-version},5)</servicemix-feature-range>
 
 		<maven-compiler-plugin-version>2.5</maven-compiler-plugin-version>
 		<maven-bundle-plugin-version>2.3.6</maven-bundle-plugin-version>
