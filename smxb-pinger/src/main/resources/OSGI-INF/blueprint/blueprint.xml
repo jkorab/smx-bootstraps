@@ -19,7 +19,9 @@
 	<cm:property-placeholder persistent-id="com.fusesource.examples.pinger"
 		update-strategy="reload">
 		<cm:default-properties>
-			<cm:property name="broker.url" value="failover:(tcp://127.0.0.1:61616)" />
+			<cm:property name="broker.url" value="failover:(tcp://127.0.0.1:62616)" />
+			<cm:property name="broker.username" value="karaf" />
+			<cm:property name="broker.password" value="karaf" />
 			<cm:property name="jetty.port" value="9090" />
 			<cm:property name="ping.frequency" value="15000" />
 		</cm:default-properties>
@@ -27,9 +29,9 @@
 
 	<bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
 		<property name="brokerURL" value="${broker.url}" />
+		<property name="userName" value="${broker.username}"/>
+		<property name="password" value="${broker.password}"/>
 	</bean>
-
-	<bean id="jetty" class="org.apache.camel.component.jetty.JettyHttpComponent" />
 
 	<camelContext id="smxb-pinger"
 		xmlns="http://camel.apache.org/schema/blueprint">

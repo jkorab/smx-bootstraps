@@ -8,68 +8,69 @@
 	License for the specific language governing permissions and ~ limitations 
 	under the License. -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.fusesource.examples</groupId>
-	<artifactId>smx-bootstraps</artifactId>
-	<packaging>pom</packaging>
-	<version>1.1-SNAPSHOT</version>
+  <groupId>com.fusesource.examples</groupId>
+  <artifactId>smx-bootstraps</artifactId>
+  <packaging>pom</packaging>
+  <version>1.1-SNAPSHOT</version>
 
-	<name>smx-bootstraps</name>
+  <name>smx-bootstraps</name>
 
-	<properties>
-		<camel-version>2.10.3</camel-version>
-        <camel-feature-range>[${camel-version},3)</camel-feature-range>
-        <activemq-camel-version>5.7.0</activemq-camel-version>
-        <activemq-feature-range>[${activemq-camel-version},6)</activemq-feature-range>
+  <properties>
+    <camel-version>2.16.3</camel-version>
+    <camel-feature-range>[${camel-version},3)</camel-feature-range>
+    <activemq-camel-version>5.13.3</activemq-camel-version>
+    <activemq-feature-range>[${activemq-camel-version},6)</activemq-feature-range>
+    <servicemix-version>7.0.0.M2</servicemix-version>
 
-		<maven-compiler-plugin-version>2.5</maven-compiler-plugin-version>
-		<maven-bundle-plugin-version>2.3.6</maven-bundle-plugin-version>
-		<build-plugins-plugin-version>2.5</build-plugins-plugin-version>
-		<build-helper-plugin-version>1.7</build-helper-plugin-version>
+    <maven-compiler-plugin-version>2.5</maven-compiler-plugin-version>
+    <maven-bundle-plugin-version>2.3.6</maven-bundle-plugin-version>
+    <build-plugins-plugin-version>2.5</build-plugins-plugin-version>
+    <build-helper-plugin-version>1.7</build-helper-plugin-version>
 
-		<osgi-import-package>*,org.apache.camel.osgi</osgi-import-package>
-	</properties>
+    <osgi-import-package>*,org.apache.camel.osgi</osgi-import-package>
+  </properties>
 
-	<modules>
-        <module>bundle-parent</module>
-        <module>camel-parent</module>
-		<module>smxb-pinger</module>
-        <module>smxb-pong-api</module>
-        <module>smxb-pong-service</module>
-		<module>smxb-ponger</module>
-		<module>smxb-features</module>
-    </modules>
-		
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>${maven-compiler-plugin-version}</version>
-					<configuration>
-						<source>1.6</source>
-						<target>1.6</target>
-					</configuration>
-				</plugin>
+  <modules>
+    <module>bundle-parent</module>
+    <module>camel-parent</module>
+    <module>smxb-pinger</module>
+    <module>smxb-pong-api</module>
+    <module>smxb-pong-service</module>
+    <module>smxb-ponger</module>
+    <module>smxb-features</module>
+  </modules>
 
-				<!-- used to generate the MANIFEST-FILE of a bundle -->
-				<plugin>
-					<groupId>org.apache.felix</groupId>
-					<artifactId>maven-bundle-plugin</artifactId>
-					<version>${maven-bundle-plugin-version}</version>
-					<extensions>true</extensions>
-					<configuration>
-						<instructions>
-							<Bundle-SymbolicName>${project.name}</Bundle-SymbolicName>
-							<Import-Package>${osgi-import-package}</Import-Package>
-						</instructions>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven-compiler-plugin-version}</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+          </configuration>
+        </plugin>
+
+        <!-- used to generate the MANIFEST-FILE of a bundle -->
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>${maven-bundle-plugin-version}</version>
+          <extensions>true</extensions>
+          <configuration>
+            <instructions>
+              <Bundle-SymbolicName>${project.name}</Bundle-SymbolicName>
+              <Import-Package>${osgi-import-package}</Import-Package>
+            </instructions>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>
