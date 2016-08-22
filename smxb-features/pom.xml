@@ -27,7 +27,7 @@
 
 	<artifactId>smxb-features</artifactId>
 	<packaging>pom</packaging>
-    <version>1.1-SNAPSHOT</version>
+  <version>1.1-SNAPSHOT</version>
 
 	<name>smxb-features</name>
 	<description>Request-response between bundles over ActiveMQ</description>
@@ -98,7 +98,7 @@
                             <goal>create-kar</goal>
                         </goals>
                         <configuration>
-                            <featuresFile>src/main/features/features.xml</featuresFile>
+                            <featuresFile>target/features/features.xml</featuresFile>
                         </configuration>
                     </execution>
                 </executions>

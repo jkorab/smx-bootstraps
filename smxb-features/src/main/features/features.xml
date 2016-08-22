@@ -22,7 +22,7 @@
     </feature>
     <feature name="smxb-ping" version="1.1">
         <feature version="${camel-feature-range}">camel-core</feature>
-        <feature version="${camel-feature-range}">camel-jetty</feature>
+        <feature version="${camel-feature-range}">camel-jetty9</feature>
         <feature version="${activemq-feature-range}">activemq-camel</feature>
         <bundle>mvn:com.fusesource.examples/smxb-pinger/1.1-SNAPSHOT</bundle>
     </feature>
